@@ -1,66 +1,163 @@
+/* General Body and Background */
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f4f4f9;
-  margin: 0;
-  padding: 0;
+    font-family: 'Arial', sans-serif; /* Keep a readable font, maybe find an anime-inspired one later */
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    color: #eee; /* Light text for contrast against potentially dark background */
+
+    /* --- Anime Background Styles --- */
+    /* Replace 'path/to/your/anime-background.jpg' with the actual path or URL of your image */
+    background-image: url('path/to/your/anime-background.jpg'); /* Example: url('images/sakura_scene.jpg') */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-attachment: fixed; /* Keep background fixed when scrolling (optional) */
+    /* Add a fallback background color in case the image doesn't load */
+    background-color: #1a1a2e; /* Dark fallback color */
+    /* --- End Anime Background Styles --- */
 }
+
+/* Title and Description */
 #title {
-  margin-top: 20px;
-  font-size: 2rem;
-  color: #333;
+    margin-top: 20px;
+    font-size: 2.5rem; /* Larger title */
+    color: #fff; /* White color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+    font-weight: bold;
 }
+
 #description {
-  margin: 10px 0 30px;
-  color: #555;
+    margin: 10px 0 30px;
+    color: #ccc; /* Lighter grey */
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
 }
+
+/* Calculator Container */
 .calculator {
-  display: inline-block;
-  background: darkslategray;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  padding: 20px;
+    display: grid; /* Use CSS Grid for button layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns, equal width */
+    grid-gap: 10px; /* Space between grid items */
+    width: 300px; /* Fixed width for the calculator */
+    margin: 40px auto; /* Center the calculator */
+    background: rgba(40, 44, 52, 0.9); /* Semi-transparent dark background */
+    border-radius: 15px; /* More rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Stronger shadow */
+    padding: 20px;
+    backdrop-filter: blur(5px); /* Optional: Blur the background behind the calculator */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle light border */
 }
+
+/* Display Box */
 .display-box {
-  width: 93%;
-  height: 50px;
-  margin-bottom: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 1.2rem;
-  text-align: right;
-  background: #f9f9f9;
+    grid-column: span 4; /* Make the display span all 4 columns */
+    width: calc(100% - 20px); /* Adjust width considering padding */
+    height: 60px; /* Taller display */
+    margin-bottom: 15px;
+    border: none; /* Remove default border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px;
+    font-size: 1.8rem; /* Larger font size */
+    text-align: right;
+    background: #e0e0e0; /* Light grey background */
+    color: #333; /* Dark text color */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2); /* Inner shadow for depth */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
 }
+
+/* Buttons */
 button {
-  width: 22%;
-  margin: 1%;
-  padding: 20px 0;
-  font-size: 1rem;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+    padding: 20px 0;
+    font-size: 1.2rem; /* Slightly larger font */
+    border: none;
+    border-radius: 8px; /* Rounded corners */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease; /* Smooth transition for hover/active */
+    font-weight: bold;
+    color: #fff; /* Default text color for most buttons */
+    background: #4a4e69; /* Default button color (a muted purple/grey) */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3); /* Add button shadow */
 }
+
 button:hover {
-  background: #0056b3;
+    background: #6b708d; /* Lighter shade on hover */
+    transform: translateY(-2px); /* Lift button slightly */
+    box-shadow: 0 5px 8px rgba(0, 0, 0, 0.4);
 }
+
+button:active {
+    transform: translateY(0); /* Press button down */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Specific Button Styles */
 button#clear {
-  background: #dc3545;
+    background: #e63946; /* Red color for clear */
+    color: #fff;
 }
 button#clear:hover {
-  background: #a71d2a;
+    background: #c0303d;
 }
-button#equal {
-  background: #28a745;
-}
-button#equal:hover {
-  background: #1e7e34;
-}
+
 button.memory-btn {
-  background: #ffc107;
+    background: #ffb703; /* Orange/Yellow for memory buttons */
+    color: #333; /* Dark text for contrast */
 }
 button.memory-btn:hover {
-  background: #d39e00;
+    background: #fb8500;
+}
+
+/* Operators + / * - % */
+button#add,
+button#subtract,
+button#multiply,
+button#divide,
+button#modulus {
+    background: #023e8a; /* Blue for operators */
+}
+button#add:hover,
+button#subtract:hover,
+button#multiply:hover,
+button#divide:hover,
+button#modulus:hover {
+     background: #022e6a;
+}
+
+/* Equals Button */
+button#equal {
+    background: #06d6a0; /* Green for equals */
+    color: #333; /* Dark text for contrast */
+    grid-column: span 2; /* Make equals button wider (optional, spans 2 columns) */
+}
+button#equal:hover {
+    background: #04a688;
+}
+
+/* Ensure Dot and Zero buttons fit the grid */
+button#dot {
+   /* Default styles are fine, spans 1 column */
+}
+
+button#0 {
+   /* Default styles are fine, spans 1 column */
+}
+
+
+/* Responsive adjustments (optional) */
+@media (max-width: 400px) {
+    .calculator {
+        width: 95%; /* Make calculator slightly wider on smaller screens */
+        grid-gap: 8px;
+    }
+    button {
+        padding: 15px 0;
+        font-size: 1.1rem;
+    }
+    #title {
+        font-size: 2rem;
+    }
+    #description {
+        font-size: 1rem;
+    }
 }
